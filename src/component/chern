@@ -1,0 +1,312 @@
+// router.post('/product-create', function (req, res) {
+//   const {name, price, description} = req.body;
+//   const product = new Product(name, price, description)
+
+//   Product.add(product)
+
+//   const list = Product.getList();
+//   console.log(`create ${list}`)
+
+//   res.render('alert-create-success', {
+//   style: 'alert-create-success',
+//   info: 'Товар успішно додано',
+//   data: {
+
+//     list,
+//     isEmpty: list.length === 0,
+//   }
+// 	@@ -128,19 +137,27 @@ router.post('/product-create', function (req, res) {
+// // ================================================================
+
+// router.get('/product-create', function (req, res) {
+//   console.log('get', Product.getList())
+//   res.render('product-create', {
+//     style: 'product-create',
+//   })
+// })
+
+// // ================================================================
+
+// router.post('/product-alert-success', function (req, res) {
+//   res.render('alert-create-success', {
+//     style: 'alert-create-success',
+//     info: 'Товар успішно додано',
+//   })
+// })
+
+// // ================================================================
+
+// router.get('/product-alert-success', function (req, res) {
+//   res.render('alert-create-success', {
+//     style: 'alert-create-success',
+//     info: 'Товар успішно додано',
+//   })
+// })
+
+// 	@@ -149,7 +166,6 @@ router.post('/product-alert-success', function (req, res) {
+// router.get('/product-list', function (req, res) {
+//   const list = Product.getList();
+
+//   res.render('product-list', {
+//   style: 'product-list',
+//   data: {
+// 	@@ -161,34 +177,77 @@ router.get('/product-list', function (req, res) {
+
+// // ================================================================
+
+// router.post('/product-list', function (req, res) {
+//   const list = Product.getList();
+
+//   res.render('alert-delete-success', {
+//     style: 'alert-delete-success',
+//     info: 'Товар успішно видалений',
+//     data: {
+//       list,
+//       isEmpty: list.length === 0,
+//     }
+//     })
+// })
+
+// // ================================================================
+
+// router.post('/product-update-form', function (req, res) {
+//   const {name, price, description} = req.body;
+//   const product = new Product(name, price, description)
+
+//   Product.add(product)
+
+//   const { id } = req.query
+//   const list = Product.getList();
+//   console.log(`create ${list}`)
+
+//   res.render('product-delete-success', {
+//   style: 'product-delete-success',
+//   info: 'Товар успішно оновлений',
+//   data: {
+//     list,
+//     isEmpty: list.length === 0,
+//   }
+//   })
+// })
+
+// // ================================================================
+
+// router.get('/product-update-form', function (req, res) {
+//   console.log('get', Product.getList())
+//   res.render('product-update', {
+//     style: 'product-update',
+//   })
+// })
+
+// // ================================================================
+
+// // ================================================================
+
+// router.post('/user-create', function (req, res) {
+
+//   const {email, login, password} = req.body;
+
+//   const user = new User(email, login, password)
+
+//   User.add(user)
+
+//   res.render('index', {
+//   style: 'index',
+//   })
+//   })
+
+// // ================================================================
+// router.get('/user-delete', function (req, res) {
+// const { id } = req.query;
+// User.deleteById(Number(id));
+// res.render('index', {
+// style: 'index',
+// })
+// console.log(User.getList())
+// })
+// // ================================================================
+// router.post('/user-update', function (req, res) {
+// const {email, password, id} = req.body;
+// const result = User.updateById(id, email);
+// res.render('index', {
+// info: 'email was updated',
+// style: 'index',
+// })
+// console.log(User.getList())
+// })
+// // ================================================================
+// // Підключаємо роутер до бек-енду
+// module.exports = router
+
+class Product {
+  static #list = []
+
+  constructor(name, price, description) {
+    this.name = name
+    this.price = price
+    this.description = description
+    this.id = Math.floor(Math.random() * 100000)
+    this.createDate = () => {
+      this.date = new Date().toISOString()
+    }
+  }
+
+  static getList() {
+    return this.#list
+  }
+
+  checkId = (id) => this.id === id
+
+  static add = (product) => {
+    this.#list.push(product)
+  }
+
+  static getById = (id) => {
+    this.#list.find((product) => product.id === id)
+  }
+
+  // static changeById(id) =>
+  //   const product = this.getById(id);
+  // }
+}
+//===========================================================================
+
+router.post('/product-create', function (req, res) {
+  const { name, price, description } = req.body
+  const product = new Product(name, price, description)
+
+  Product.add(product)
+
+  const list = Product.getList()
+  console.log(`create ${list}`)
+
+  res.render('alert-create-success', {
+    style: 'alert-create-success',
+    info: 'Товар успішно додано',
+    data: {
+      list,
+      isEmpty: list.length === 0,
+    },
+  })
+})
+
+// ================================================================
+
+router.get('/product-create', function (req, res) {
+  console.log('get', Product.getList())
+  res.render('product-create', {
+    style: 'product-create',
+  })
+})
+
+// ================================================================
+// ================================================================
+
+router.post('/product-alert-success', function (req, res) {
+  res.render('alert-create-success', {
+    style: 'alert-create-success',
+    info: 'Товар успішно додано',
+  })
+})
+
+// ================================================================
+
+router.get('/product-alert-success', function (req, res) {
+  res.render('alert-create-success', {
+    style: 'alert-create-success',
+    info: 'Товар успішно додано',
+  })
+})
+//=========================================================================
+//===========================================================================
+
+router.get('/product-list', function (req, res) {
+  const list = Product.getList()
+
+  res.render('product-list', {
+    style: 'product-list',
+    // data: {},
+  })
+})
+
+// ================================================================
+router.post('/product-list', function (req, res) {
+  const list = Product.getList()
+
+  res.render('alert-delete-success', {
+    style: 'alert-delete-success',
+    info: 'Товар успішно видалений',
+    data: {
+      list,
+      isEmpty: list.length === 0,
+    },
+  })
+})
+
+// ================================================================
+// ================================================================
+
+router.post('/product-update-form', function (req, res) {
+  const { name, price, description } = req.body
+  const product = new Product(name, price, description)
+
+  Product.add(product)
+
+  const { id } = req.query
+  const list = Product.getList()
+  console.log(`create ${list}`)
+
+  res.render('product-delete-success', {
+    style: 'product-delete-success',
+    info: 'Товар успішно оновлений',
+    data: {
+      list,
+      isEmpty: list.length === 0,
+    },
+  })
+})
+
+// ================================================================
+
+router.get('/product-update-form', function (req, res) {
+  console.log('get', Product.getList())
+  res.render('product-update', {
+    style: 'product-update',
+  })
+})
+
+// ================================================================
+// // ================================================================
+
+// router.post('/user-create', function (req, res) {
+//   const { email, login, password } = req.body
+
+//   const user = new User(email, login, password)
+
+//   User.add(user)
+
+//   res.render('index', {
+//     style: 'index',
+//   })
+// })
+
+// // ================================================================
+// router.get('/user-delete', function (req, res) {
+//   const { id } = req.query
+//   User.deleteById(Number(id))
+//   res.render('index', {
+//     style: 'index',
+//   })
+//   console.log(User.getList())
+// })
+// // ================================================================
+// router.post('/user-update', function (req, res) {
+//   const { email, password, id } = req.body
+//   const result = User.updateById(id, email)
+//   res.render('index', {
+//     info: 'email was updated',
+//     style: 'index',
+//   })
+//   console.log(User.getList())
+// })
+// // ================================================================

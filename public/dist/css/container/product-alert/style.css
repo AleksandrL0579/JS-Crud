@@ -1,0 +1,33 @@
+.main {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid #e1d7d7;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form__title {
+  font-size: 16px;
+  padding: 10px;
+}
+.form__button {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: rgb(66, 66, 220);
+  width: 250px;
+  height: 40px;
+}
+
+/*# sourceMappingURL=style.css.map */

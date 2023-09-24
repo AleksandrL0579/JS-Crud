@@ -1,0 +1,17 @@
+.container {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  -webkit-box-shadow: 0px 0px 20px 7px rgb(189, 189, 189);
+  -moz-box-shadow: 0px 0px 20px 7px rgb(189, 189, 189);
+  box-shadow: 0px 0px 20px 7px rgb(189, 189, 189);
+  margin: 32px;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.title {
+  font-size: 28px;
+}
+
+/*# sourceMappingURL=style.css.map */

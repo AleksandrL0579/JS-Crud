@@ -1,0 +1,34 @@
+{{!
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+}}
+
+
+<div class="btn__page">
+  <h1>Список товаров</h1>
+  <a class="home__page" href="/product-create"><button class="">
+      <p class="cyrcle">На главную</p>
+    </button></a>
+</div>
+<section class="section">
+  {{#with data.products}}
+  {{#if isEmpty}}
+  <mark> List is empty </mark>
+  {{else}}
+  <div class="container__list">
+    {{#each list}}
+    <div class="product-card">
+      <h3 class="product__name"> {{name}} </h3>
+      <p class="product__desctiption"> {{description}} </p>
+      <p class="id">ID: {{id}} </p>
+
+      <div class="product__content">
+        <h2 class="price"> {{price}} $</h2>
+        <a href="/product-edit?id={{id}}" class="button"> Редактировать </a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+  {{/with}}
+</section>
