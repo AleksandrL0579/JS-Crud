@@ -1,0 +1,31 @@
+ @use '../../lib/service.scss' as s;
+
+@use "../../component/field-text/style.scss" as field-text;
+
+.card {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+  padding: s.space(2);
+  color: grey;
+ 
+  gap: 20px;
+}
+.label__card {
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+  border: white;
+}
+.label-input__id {
+  padding-right: 200px;
+}
+.field__input {
+  border: none ;
+  padding: s.space(2);
+  border-radius: 10px;
+  color: black;  
+}
+.link {
+  color: gray;
+}

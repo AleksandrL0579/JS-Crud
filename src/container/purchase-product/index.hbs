@@ -1,0 +1,47 @@
+
+
+
+<main class="main">
+  <div class="product__label">
+    {{>heading title="Информация про товар"}}
+  </div>
+
+  {{#with data.product}}
+  <form method="POST" action="/purchase-create?id={{id}}">
+    <div class="product-info">
+      <img src="{{img}}" alt="{{title}}" class="product-info__image">
+      <div class="product">
+        <h2 class="product-info__title">{{title}}</h2>
+        <p class="product-info__subtitle">{{description}}</p>
+
+        {{>divider}}
+
+        {{#each category}}
+        <span class="product-info__category product-info__category--{{id}}">{{text}}</span>
+        {{/each}}
+
+        {{>divider}}
+
+        {{>field label = "Количество" type = "number" name = "amount" value = "1"}}
+
+       
+        {{>button text = "Купить сейчас" price = price}}
+      </div>
+    </div>
+  </form>
+  {{/with}}
+
+  <div class="product__label">
+    {{>heading title="Другие товары" info="Компьютеры и ноутбуки/Компьютеры,ноутбуки"}}
+  </div>
+  <div class="product-list">
+    {{#each data.list}}
+    {{>purchase-product data = this}}
+    {{/each}}
+  </div>
+
+</main>
+
+
+
+

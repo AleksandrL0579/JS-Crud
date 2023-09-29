@@ -1,0 +1,54 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.field__label {
+  font-size: 14px;
+}
+
+.field__input {
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.field--disabled {
+  position: absolute;
+  display: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  color: grey;
+  gap: 20px;
+}
+
+.label__card {
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+  border: white;
+}
+
+.label-input__id {
+  padding-right: 200px;
+}
+
+.field__input {
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  color: black;
+}
+
+.link {
+  color: gray;
+}
+
+/*# sourceMappingURL=style.css.map */

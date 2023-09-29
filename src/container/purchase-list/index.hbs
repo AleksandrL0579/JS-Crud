@@ -1,0 +1,23 @@
+<main class="main">
+  <div class="label">
+    {{>heading title="Moи заказы"}}
+  </div>
+  {{#each list}}
+  <div class="card">
+
+    <div class="label-input__id">
+      <span class="field__label-id">ID:</span>
+      <a href="/purchase-info?id={{id}}" class="link">{{id}}</a>
+    </div>
+
+    <div class="label__card">
+      {{>field-text label="Товар:" type="text" data=this.product name="product"}}
+      {{>field-text label="Сумма заказа (грн):" type="text" data=this.totalPrice name="totalPrice"}}
+      {{>field-text label="Бонус (грн):" type="text" data=this.bonus name="bonus"}}
+    </div>
+
+  </div>
+  {{>divider}}
+  {{/each}}
+
+</main>

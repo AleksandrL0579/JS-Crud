@@ -1,0 +1,40 @@
+<main class="main">
+
+  {{>heading title="Информация про заказ"}}
+
+
+  <div class="card">
+
+    <div class="block1">
+      {{>field-text label="ID:" type="text" data=purchaseInfo.id name="id"}}
+    </div>
+    {{>divider}}
+
+    <div class="block1">
+      {{>field-text label="Имя:" type="text" data=purchaseInfo.firstname name="firstname"}}
+      {{>field-text label="Фамилия:" type="text" data=purchaseInfo.lastname name="lastnema"}}
+      {{>field-text label="Телефон:" type="text" data=purchaseInfo.phone name="phone"}}
+      {{>field-text label="Електронная почта:" type="text" data=purchaseInfo.email name="email"}}
+    </div>
+    {{>divider}}
+
+    <div class="block2">
+      {{>field-text label="Адрес доставки:" type="text" data=purchaseInfo.comment name="comment"}}
+      {{>field-text label="Название товара:" type="text" data=purchaseInfo.product.title name="product"}}
+    </div>
+    {{>divider}}
+
+    <div class="block1">
+      {{>field-text label="Стоимость товаров (грн):" type="text" data=purchaseInfo.productPrice name="productPrice"}}
+      {{>field-text label="Стоимость доставки (грн):" type="text" data=purchaseInfo.deliveryPrice
+      name="deliveryPrice"}}
+      {{>field-text label="Сумма к оплате (грн):" type="text" data=purchaseInfo.totalPrice name="totalPrice"}}
+      {{>field-text label="Начисленные бонусы (грн):" type="text" data=purchaseInfo.bonus name="bonus"}}
+    </div>
+    {{>divider}}
+
+    {{>button-link text="Изменить данные" link="/purchase-update?id=" data=purchaseInfo.id }}
+
+  </div>
+
+</main>
