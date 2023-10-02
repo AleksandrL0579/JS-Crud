@@ -1,5 +1,5 @@
 .button {
-  background-color: blue;
+  background-color: #121212;
   color: white;
   border: none;
   border-radius: 10px;
@@ -14,7 +14,7 @@
 
 .product-card {
   border-radius: 10px;
-  border: 1px solid rgb(156, 150, 150);
+  border: 1px solid #ced4da;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@
   padding: 4px 12px;
   border-radius: 30px;
   font-size: 14px;
-  color: blue;
+  color: #121212;
   border: 1px solid transparent;
 }
 
@@ -55,7 +55,7 @@
 }
 
 .product-card__button {
-  background-color: white;
+  background-color: rgb(0, 120, 255);
   color: white;
   border: none;
   border-radius: 5px;

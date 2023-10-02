@@ -1,0 +1,29 @@
+<main class="main">
+    <section class="main__content">
+        {{#with data}}
+        <h1 class="title title--center">
+            Додати до плейліста
+        </h1>
+        <ul class="track__list">
+            {{#each tracks}}
+            <li class="track">
+                <img src="{{image}}" alt="{{name}}">
+                <div class="track__content">
+                    <strong class="track__name">{{name}}</strong>
+                    <em class="track__author">{{author}}</em>
+                </div>
+                <form action="/spotify-track-add" method="POST">
+                    <input type="hidden" name="playlistId" value="{{../playlistId}}">
+                    <input type="hidden" name="trackId" value="{{id}}">
+                    {{!-- <a href="/spotify-track-add?playlistId={{../playlistId}}&trackId={{id}}"> --}}
+                        <button type="submit">
+                            <img src="/svg/add_track.svg" class="track__icon">
+                        </button>
+                        {{!-- </a> --}}
+                </form>
+            </li>
+            {{/each}}
+        </ul>
+        {{/with}}
+    </section>
+</main>

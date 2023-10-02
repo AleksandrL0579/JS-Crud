@@ -1,0 +1,48 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../lib/spotify.scss' as spotify;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: fit-content;
+}
+
+.header__title {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.header__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: s.space(8);
+
+}
+
+.library__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: s.space(9);
+  column-gap: s.space(8);
+}
+
+.library__card {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(5);
+}
+
+.library__card__image {
+  width: 345px;
+  height: 345px;
+}
+
+.library__card__title {
+  font-size: 20px;
+}
+
+.library__card__footer {
+  color: s.color(gray);
+}
